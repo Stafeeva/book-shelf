@@ -31,6 +31,14 @@ class AppServer {
       });
     });
 
+    app.delete('/api/books/:id', (req, res) => {
+      const bookId = req.params.id;
+
+      bookService.delete(bookId, () => {
+        res.sendStatus(204);
+      });
+    })
+
     app.listen(port, () => console.log(`Express server listening on port: ${port}!`));
   }
 }
