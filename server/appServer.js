@@ -31,6 +31,15 @@ class AppServer {
       });
     });
 
+    app.put('/api/books/:id', (req, res) => {
+      const bookId = req.params.id;
+      const bookData = req.body;
+
+      bookService.edit(bookId, bookData, () => {
+        res.sendStatus(200);
+      });
+    })
+
     app.delete('/api/books/:id', (req, res) => {
       const bookId = req.params.id;
 

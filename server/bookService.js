@@ -10,13 +10,24 @@ class BookService {
   }
 
   add(book, callback) {
+    //TODO: generate an id
     this.booksCollection.insertOne(book, (err, result) => {
       callback();
     });
   }
 
+  edit(bookId, data, callback) {
+    //TODO: change title to id when we have bookId in DB
+    this.booksCollection.updateOne({
+      title: bookId,
+    }, {'$set': data}, (err, book) => {
+      callback();
+    });
+  }
+
   delete(bookId, callback) {
-    //TODO: update when we have bookId in DB
+    //TODO: change title to id when we have bookId in DB
+    //TODO: update responses + error messages
     this.booksCollection.deleteOne({
       title: bookId,
     }, (err, result) => {
