@@ -1,41 +1,24 @@
-const express = require('express');
-const bodyParser = require('body-parser');
 const mongo = require('mongodb').MongoClient;
+const BookService = require('./bookService');
+const AppServer = require('./appServer');
 
 const url = 'mongodb://localhost:27017';
 
-const app = express();
-const port = 3000;
-
-app.use(express.static('public'));
-
-app.use(bodyParser.json());
-
 mongo.connect(url, (err, client) => {
   if (err) {
-    console.error(err)
-    return
+    console.error('failed to connect to MongoDB:', err);
+
+    return;
   }
-  console.log('connected!======');
+
+  console.log('connected to MongoDB:', url);
 
   const db = client.db('books');
-  const books = db.collection('books');
+  const booksCollection = db.collection('books');
 
-  app.get('/api/books', (req, res) => {
+  const bookService = new BookService(booksCollection);
 
-    console.log('fetching books from mongo:');
-    books.find().toArray((err, items) => {
-      console.log('books', items);
-      res.json(items);
-    });
-  });
+  const appServer = new AppServer(bookService);
 
-  app.post('/api/books', (req, res) => {
-    console.log('========req.body========', req.body);
-
-    res.sendStatus(201);
-  })
-
-  app.listen(port, () => console.log(`Bookshelf listening on port ${port}!`));
-
+  appServer.start();
 });
