@@ -15,7 +15,11 @@ For pretty printed json:
 ```
 curl -v http://localhost:3000/api/books | jq
 ```
+Curl UPDATE request example:
 
+```
+curl -X PUT -H "Content-Type: application/json" -d '{"title":"1984"}' http://localhost:3000/api/books/1980
+```
 Curl DELETE request example:
 
 ```
