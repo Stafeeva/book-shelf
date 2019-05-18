@@ -8,6 +8,14 @@ class BookService {
       callback(items);
     });
   }
+
+  add(book, callback) {
+    this.booksCollection.insertOne(book, (err, result) => {
+      console.log('====result====', result);
+
+      callback();
+    })
+  }
 }
 
 module.exports = BookService;

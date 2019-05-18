@@ -8,23 +8,27 @@ class AppServer {
 
   start() {
     const app = express();
-    
+
     const port = 3000;
 
     app.use(express.static('public'));
 
     app.use(bodyParser.json());
 
+    const { bookService } = this;
+
     app.get('/api/books', (req, res) => {
-      this.bookService.list(books => {
+      bookService.list(books => {
         res.json(books);
       });
     });
 
     app.post('/api/books', (req, res) => {
-      console.log('========req.body========', req.body);
+      const book = req.body;
 
-      res.sendStatus(201);
+      bookService.add(book, () => {
+        res.sendStatus(201);
+      });
     });
 
     app.listen(port, () => console.log(`Express server listening on port: ${port}!`));

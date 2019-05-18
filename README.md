@@ -10,7 +10,7 @@ Curl POST request example:
 curl -v http://localhost:3000/api/books -X POST -H "Content-Type: application/json" -d '{"key1":"value1", "key2":"value2"}'
 ```
 
-For pretty printed json use:
+For pretty printed json:
 
 ```
 curl -v http://localhost:3000/api/books | jq
@@ -22,6 +22,29 @@ To run MongoDB:
 brew services start mongodb
 ```
 
+MongoDB commands:
+
+```
+mongo
+```
+```
+use books
+```
+```
+show collections
+```
+```
+db.books.find()
+```
+```
+db.books.insert({ title: "Example Title" })
+```
+```
+db.books.remove({ title: "Example Title" })
+```
+```
+exit
+```
 
 https://flaviocopes.com/mongodb/
 
