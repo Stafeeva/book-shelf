@@ -1,0 +1,23 @@
+{
+  "name": "book-shelf",
+  "version": "1.0.0",
+  "description": "Express - MongoDB - React - Redux project",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Stafeeva/book-shelf.git"
+  },
+  "author": "Stafeeva",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Stafeeva/book-shelf/issues"
+  },
+  "homepage": "https://github.com/Stafeeva/book-shelf#readme",
+  "dependencies": {
+    "express": "^4.17.0"
+  }
+}
