@@ -47,10 +47,13 @@ show collections
 db.books.find()
 ```
 ```
-db.books.insert({ title: "Example Title" })
+db.books.insert({title: "Example Title"})
 ```
 ```
-db.books.remove({ title: "Example Title" })
+db.books.remove({title: "Example Title"})
+```
+```
+db.books.update({title: "Old Title"}, {title: "New Title"})
 ```
 ```
 exit

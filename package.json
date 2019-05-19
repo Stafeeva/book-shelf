@@ -19,6 +19,7 @@
   "homepage": "https://github.com/Stafeeva/book-shelf#readme",
   "dependencies": {
     "express": "^4.17.0",
-    "mongodb": "^3.2.5"
+    "mongodb": "^3.2.5",
+    "uuid": "^3.3.2"
   }
 }

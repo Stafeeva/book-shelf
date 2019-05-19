@@ -1,3 +1,5 @@
+const uuidv4 = require('uuid/v4');
+
 class BookService {
   constructor(booksCollection) {
     this.booksCollection = booksCollection;
@@ -10,26 +12,28 @@ class BookService {
   }
 
   add(book, callback) {
-    //TODO: generate an id
-    this.booksCollection.insertOne(book, (err, result) => {
+    const generatedId = uuidv4();
+    const newBook = book;
+
+    newBook.id = generatedId;
+
+    this.booksCollection.insertOne(newBook, (err, result) => {
       callback();
     });
   }
 
   edit(bookId, data, callback) {
-    //TODO: change title to id when we have bookId in DB
     this.booksCollection.updateOne({
-      title: bookId,
+      id: bookId,
     }, {'$set': data}, (err, book) => {
       callback();
     });
   }
 
   delete(bookId, callback) {
-    //TODO: change title to id when we have bookId in DB
     //TODO: update responses + error messages
     this.booksCollection.deleteOne({
-      title: bookId,
+      id: bookId,
     }, (err, result) => {
       callback();
     });
