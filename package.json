@@ -20,9 +20,13 @@
   },
   "homepage": "https://github.com/Stafeeva/book-shelf#readme",
   "dependencies": {
+    "autobind-decorator": "^2.4.0",
+    "axios": "^0.18.0",
     "mongodb": "^3.2.5",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-redux": "^7.0.3",
+    "redux": "^4.0.1",
     "uuid": "^3.3.2"
   },
   "devDependencies": {
