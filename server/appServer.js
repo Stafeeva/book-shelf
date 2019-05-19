@@ -1,6 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
+const webpack = require('webpack');
+const webpackDevMiddleware = require('webpack-dev-middleware');
+
 class AppServer {
   constructor(bookService) {
     this.bookService = bookService;
@@ -47,6 +50,14 @@ class AppServer {
         res.sendStatus(204);
       });
     })
+
+    const config = require('../webpack.config.js');
+    const compiler = webpack(config);
+
+    app.use(webpackDevMiddleware(compiler, {
+      noInfo: true,
+      publicPath: config.output.publicPath
+    }));
 
     app.listen(port, () => console.log(`Express server listening on port: ${port}!`));
   }

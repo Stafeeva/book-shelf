@@ -5,7 +5,8 @@
   "main": "server/server.js",
   "scripts": {
     "start": "node server/server.js",
-    "build": "webpack --mode production",
+    "webpack-dev": "webpack-dev-server --open --mode development",
+    "webpack-prod": "webpack --mode production",
     "test": "test"
   },
   "repository": {
@@ -19,7 +20,6 @@
   },
   "homepage": "https://github.com/Stafeeva/book-shelf#readme",
   "dependencies": {
-    "express": "^4.17.0",
     "mongodb": "^3.2.5",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -30,7 +30,10 @@
     "@babel/preset-env": "^7.4.4",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.6",
+    "express": "^4.17.0",
     "webpack": "^4.31.0",
-    "webpack-cli": "^3.3.2"
+    "webpack-cli": "^3.3.2",
+    "webpack-dev-middleware": "^3.7.0",
+    "webpack-dev-server": "^3.4.1"
   }
 }
