@@ -4,6 +4,14 @@ Express - MongoDB - React - Redux project
 
 ### Notes ###
 
+How to start: run
+
+```
+npm i
+npm start
+```
+and go to localhost:3000.
+
 Curl POST request example:
 
 ```
@@ -64,3 +72,10 @@ exit
 https://flaviocopes.com/mongodb/
 
 https://flaviocopes.com/node-mongodb/
+
+### Features I am building ###
+
+#### Version 1 ####
+
+1. User can add a book to a list.
+2. User can set a status of a book: 'to read', 'read', 'reading'.
