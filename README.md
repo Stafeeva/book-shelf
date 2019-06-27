@@ -78,4 +78,4 @@ https://flaviocopes.com/node-mongodb/
 #### Version 1 ####
 
 1. User can add a book to a list.
-2. User can set a status of a book: 'to read', 'read', 'reading'.
+2. User can set a status of a book: 'to read', 'finished', 'reading'.

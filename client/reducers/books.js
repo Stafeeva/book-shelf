@@ -1,16 +1,16 @@
 const books = (state = [], action) => {
-  console.log('action', action);
-  console.log('state', state);
-
   switch (action.type) {
-    case 'ADD_BOOK':
-      return [
-        ...state,
-        {
-          title: action.title,
-        }
-      ]
-      
+    // case 'ADD_BOOK':
+    //   return [
+    //     ...state,
+    //     {
+    //       title: action.title,
+    //     }
+    //   ]
+
+    case 'SET_BOOKS':
+      return action.books;
+
     default:
       return state;
   }
