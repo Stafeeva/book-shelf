@@ -5,6 +5,8 @@ import { fetchBooks } from '../actions';
 
 import AddBook from './AddBook.jsx';
 
+import './booklist.css';
+
 class Booklist extends Component {
 
   componentWillMount() {
@@ -15,8 +17,7 @@ class Booklist extends Component {
     const { books } = this.props;
 
     return (
-      <div>
-        <h1>Booklist</h1>
+      <div className="booklist">
         {books.map(book => (
           <p key={book._id}>{book.title}</p>
         ))}

@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 
 import { addBook } from '../actions';
 
+import './add-book.css';
+
 class AddBook extends Component {
 
   render() {
@@ -13,9 +15,9 @@ class AddBook extends Component {
     }
 
     return (
-      <div>
-        <button onClick={onClickAddBook}>
-          Add book
+      <div className="add-book">
+        <button className="add-book__button" onClick={onClickAddBook}>
+          +
         </button>
       </div>
     );
