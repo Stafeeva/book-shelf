@@ -1,4 +1,13 @@
-.add-book__button {
+.add-book__open-button {
   border-radius: 50%;
-  font-size: 1.5rem;
+  background-color: #FFFFFF;
+  border: 1px solid #874e4c;
+  padding: 0.1rem 0.4rem 0.2rem;
+  color: #874e4c;
+  font-size: 1.3rem;
+  font-weight: 300;
+}
+
+.add-book__add-button {
+  margin-left: 1rem;
 }

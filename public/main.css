@@ -6,6 +6,24 @@ body {
 
 h1 {
   font-family: 'Bitter', serif;
-  color: #482426;
+  color: #874e4c;
   font-weight: 700;
+}
+
+button {
+  border: none;
+  background-color: #874e4c;
+  border-radius: 6px;
+  font-size: 1rem;
+  padding: 0.5rem;
+  color: #FFFFFF;
+  border: 1px solid #874e4c;
+}
+
+input {
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #874e4c;
+  font-size: 1rem;
+  outline-style: none;
 }
