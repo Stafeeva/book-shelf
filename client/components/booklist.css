@@ -15,10 +15,9 @@
 }
 
 .booklist__item {
-  margin: 1rem 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  margin: 0.5rem 0;
+  width: 100%;
+  text-align: left;
 }
 
 .booklist__title, .booklist__author {

@@ -17,6 +17,7 @@ button {
   padding: 0.5rem;
   color: #FFFFFF;
   border: 1px solid #874e4c;
+  outline-style: none;
 }
 
 input {
