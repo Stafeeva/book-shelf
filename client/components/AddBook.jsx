@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import autobind from 'autobind-decorator';
 
-import { addBook } from '../actions';
+import { addBook, fetchBooks } from '../actions';
 
 import './add-book.css';
 

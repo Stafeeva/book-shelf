@@ -1,3 +1,7 @@
+.add-book {
+  margin-top: 2rem;
+}
+
 .add-book__open-button {
   border-radius: 50%;
   background-color: #FFFFFF;

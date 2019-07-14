@@ -24,16 +24,18 @@ class Booklist extends Component {
     const { onClickDeleteBook } = this;
 
     return (
-      <div className="booklist">
-        {books.map(book => (
-          <div className="booklist__item" key={book.id}>
-            <div>
-              <p className="booklist__title">{book.title}</p>
-              <p className="booklist__author">by {book.author}</p>
+      <div>
+        <div className="booklist">
+          {books.map(book => (
+            <div className="booklist__item" key={book.id}>
+              <div>
+                <p className="booklist__title">{book.title}</p>
+                <p className="booklist__author">by {book.author}</p>
+              </div>
+              <button className="booklist__delete-book" onClick={() => onClickDeleteBook(book.id)}>x</button>
             </div>
-            <button className="booklist__delete-book" onClick={() => onClickDeleteBook(book.id)}>x</button>
-          </div>
-        ))}
+          ))}
+        </div>
         <AddBook />
       </div>
     );
