@@ -5,9 +5,7 @@ import { setBooks } from '../actions';
 export const httpMiddleware = store => next => action => {
   switch (action.type) {
     case 'ADD_BOOK':
-      axios.post('api/books', {
-        title: action.title,
-      }).then(response => {
+      axios.post('api/books', action.book).then(response => {
         console.log('done!');
       });
 

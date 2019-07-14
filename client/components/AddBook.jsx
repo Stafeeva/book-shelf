@@ -11,43 +11,65 @@ class AddBook extends Component {
     super(props);
 
      this.state = {
-       bookToAdd: '',
-       showBookField: false,
+       title: '',
+       author: '',
+       showInputFields: false,
      };
   }
 
   @autobind onClickOpenBookField() {
     this.setState({
-      showBookField: true,
+      showInputFields: true,
     });
   }
 
-  @autobind onChangeBookField(event) {
-    const book = event.target.value;
+  @autobind onChangeTitle(event) {
+    const title = event.target.value;
 
     this.setState({
-      bookToAdd: book,
+      title,
+    });
+  }
+
+  @autobind onChangeAuthor(event) {
+    const author = event.target.value;
+
+    this.setState({
+      author,
     });
   }
 
   @autobind onClickAddBook() {
-    this.props.dispatch(addBook(this.state.bookToAdd));
+    const { author, title } = this.state;
+
+    this.props.dispatch(addBook({
+      title,
+      author,
+    }));
 
     this.setState({
-      bookToAdd: '',
-      showBookField: false,
+      title: '',
+      author: '',
+      showInputFields: false,
     });
   }
 
   render() {
-    const { bookToAdd, showBookField } = this.state;
-    const { onChangeBookField, onClickAddBook, onClickOpenBookField } = this;
+    const { author, title, showInputFields } = this.state;
+    const {
+      onChangeAuthor,
+      onChangeTitle,
+      onClickAddBook,
+      onClickOpenBookField,
+    } = this;
 
     return (
       <div className="add-book">
-        {showBookField ? (
+        {showInputFields ? (
           <div>
-            <input value={bookToAdd} onChange={onChangeBookField} />
+            <input value={title} onChange={onChangeTitle} />
+            &nbsp;by&nbsp;
+            <input value={author} onChange={onChangeAuthor} />
             <button className="add-book__add-button" onClick={onClickAddBook}>Add</button>
           </div>
         ) : (

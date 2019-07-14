@@ -23,15 +23,16 @@ class Booklist extends Component {
     const { books } = this.props;
     const { onClickDeleteBook } = this;
 
-    console.log('books', books);
-
     return (
       <div className="booklist">
         {books.map(book => (
-          <p key={book.id}>
-            {book.title}
+          <div className="booklist__item" key={book.id}>
+            <div>
+              <p className="booklist__title">{book.title}</p>
+              <p className="booklist__author">by {book.author}</p>
+            </div>
             <button className="booklist__delete-book" onClick={() => onClickDeleteBook(book.id)}>x</button>
-          </p>
+          </div>
         ))}
         <AddBook />
       </div>
