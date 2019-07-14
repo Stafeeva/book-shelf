@@ -3,6 +3,11 @@ export const addBook = title => ({
   title,
 });
 
+export const deleteBook = id => ({
+  type: "DELETE_BOOK",
+  id,
+});
+
 export const fetchBooks = () => ({
   type: "FETCH_BOOKS",
 });

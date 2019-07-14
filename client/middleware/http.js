@@ -4,6 +4,22 @@ import { setBooks } from '../actions';
 
 export const httpMiddleware = store => next => action => {
   switch (action.type) {
+    case 'ADD_BOOK':
+      axios.post('api/books', {
+        title: action.title,
+      }).then(response => {
+        console.log('done!');
+      });
+
+      break;
+
+    case 'DELETE_BOOK':
+      axios.delete(`api/books/${action.id}`).then(response => {
+        console.log('deleted!');
+      });
+
+      break;
+
     case 'FETCH_BOOKS':
       axios.get('/api/books').then(response => {
         const books = response.data;

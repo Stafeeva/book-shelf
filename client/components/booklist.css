@@ -1,5 +1,11 @@
-.booklist {
-  background-color: #ffffff;
-  padding: 1rem;
-  border-radius: 6px;
+.booklist__delete-book {
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  border: 1px solid #874e4c;
+  padding: 0rem 0.3rem 0.1rem;
+  color: #874e4c;
+  font-size: 0.8rem;
+  font-weight: 300;
+  opacity: 0.4;
+  margin-left: 0.5rem;
 }
