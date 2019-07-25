@@ -20,7 +20,7 @@ class App extends Component {
     return (
       <div>
         <Header />
-        <BookList />
+        <BookList status="Reading"/>
       </div>
     );
   }

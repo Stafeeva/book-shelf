@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import autobind from 'autobind-decorator';
 
 import { deleteBook, fetchBooks } from '../actions';
 
@@ -14,13 +15,20 @@ class BookList extends Component {
     this.props.dispatch(fetchBooks());
   }
 
-  render() {
+  @autobind filteredList(status) {
     const { books } = this.props;
+
+    return books.filter(book => book.status == status);
+  }
+
+  render() {
+    const { books, status } = this.props;
+    const { filteredList } = this;
 
     return (
       <div>
         <div className="book-list">
-          {books.map(book => (
+          {filteredList(status).map(book => (
             <BookItem key={book.id} book={book} />
           ))}
         </div>
