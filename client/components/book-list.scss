@@ -1,0 +1,17 @@
+@import '../styles/_colors.scss';
+
+.book-list {
+  width: 30%;
+
+  &__delete-book {
+    border-radius: 50%;
+    background-color: #FFFFFF;
+    border: 1px solid $dark-red;
+    padding: 0rem 0.3rem 0.1rem;
+    color: $dark-red;
+    font-size: 0.8rem;
+    font-weight: 300;
+    opacity: 0.4;
+    margin-left: 0.5rem;
+  }
+}

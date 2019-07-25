@@ -6,7 +6,7 @@ import { deleteBook, fetchBooks } from '../actions';
 import AddBook from './AddBook.jsx';
 import BookItem from './BookItem.jsx';
 
-import './book-list.css';
+import './book-list.scss';
 
 class BookList extends Component {
 

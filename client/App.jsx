@@ -8,6 +8,8 @@ import middleware from './middleware';
 import Header from './components/Header.jsx';
 import BookList from './components/BookList.jsx';
 
+import './styles/styles.scss';
+
 const store = createStore(
   rootReducer,
   middleware

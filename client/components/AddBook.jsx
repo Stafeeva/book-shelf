@@ -4,7 +4,7 @@ import autobind from 'autobind-decorator';
 
 import { addBook, fetchBooks } from '../actions';
 
-import './add-book.css';
+import './add-book.scss';
 
 class AddBook extends Component {
 

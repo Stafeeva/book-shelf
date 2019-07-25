@@ -1,5 +1,7 @@
+@import './_colors.scss';
+
 body {
-  background-color: #fcf5f2;
+  background-color: $light-pink;
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
 }
@@ -11,19 +13,18 @@ h1 {
 
 button {
   border: none;
-  background-color: #874e4c;
+  background-color: $dark-red;
   border-radius: 6px;
   font-size: 1rem;
   padding: 0.5rem;
   color: #FFFFFF;
-  border: 1px solid #874e4c;
   outline-style: none;
 }
 
 input {
   padding: 0.5rem;
   border-radius: 6px;
-  border: 1px solid #874e4c;
+  border: 1px solid $dark-red;
   font-size: 1rem;
   outline-style: none;
 }

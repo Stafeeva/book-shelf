@@ -1,0 +1,14 @@
+.book-item {
+  margin: 0.5rem 0;
+  width: 100%;
+  text-align: left;
+
+  &__title, &__author {
+    margin: 0;
+  }
+
+  &__author {
+    font-size: 0.8rem;
+    opacity: 0.5;
+  }
+}

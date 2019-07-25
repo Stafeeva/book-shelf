@@ -3,7 +3,7 @@ import autobind from 'autobind-decorator';
 
 import BookMenu from './BookItem.jsx';
 
-import './book-item.css';
+import './book-item.scss';
 
 class BookItem extends Component {
 

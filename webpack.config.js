@@ -21,8 +21,17 @@ module.exports = {
         }
       },
       {
-        test: /\.css$/i,
-        use: [{ loader: 'style-loader' }, { loader: 'css-loader' }],
+        test: /\.scss$/,
+        use: [{
+          loader: 'style-loader'
+        }, {
+          loader: 'css-loader'
+        }, {
+          loader: "sass-loader",
+          options: {
+              includePaths: ["absolute/path/a", "absolute/path/b"]
+          }
+        }],
       },
     ]
   }
