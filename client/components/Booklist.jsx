@@ -16,7 +16,6 @@ class BookList extends Component {
 
   render() {
     const { books } = this.props;
-    const { onClickOpenBookMenu } = this;
 
     return (
       <div>

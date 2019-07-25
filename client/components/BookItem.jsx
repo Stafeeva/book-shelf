@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import autobind from 'autobind-decorator';
 
-import BookMenu from './BookItem.jsx';
+import BookMenu from './BookMenu.jsx';
 
 import './book-item.scss';
 
@@ -16,6 +16,7 @@ class BookItem extends Component {
   }
 
   @autobind onClickOpenBookMenu() {
+    console.log("clicked open book menu", this.props);
     this.setState({
       openBookMenu: true,
     });
@@ -26,6 +27,7 @@ class BookItem extends Component {
     const { openBookMenu } = this.state;
     const { onClickOpenBookMenu } = this;
 
+    console.log('book id:', book.id);
     return (
       <div key={book.id}>
         <button className="book-item" onClick={onClickOpenBookMenu}>

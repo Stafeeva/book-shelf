@@ -1,19 +1,19 @@
 const axios = require('axios');
 
-import { setBooks } from '../actions';
+import { fetchBooks, setBooks } from '../actions';
 
 export const httpMiddleware = store => next => action => {
   switch (action.type) {
     case 'ADD_BOOK':
       axios.post('api/books', action.book).then(response => {
-        console.log('done!');
+        store.dispatch(fetchBooks());
       });
 
       break;
 
     case 'DELETE_BOOK':
       axios.delete(`api/books/${action.id}`).then(response => {
-        console.log('deleted!');
+        store.dispatch(fetchBooks());
       });
 
       break;

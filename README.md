@@ -80,7 +80,7 @@ https://flaviocopes.com/node-mongodb/
 1. User can add a book to a list.
 2. User can set a status of a book: 'to read', 'finished', 'reading'.
 
-### Version 2 ###
+#### Version 2 ####
 
 3. User can edit a book.
 4. Book list has 3 columns: "To read", "Reading", "Finished".
