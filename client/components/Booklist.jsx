@@ -6,9 +6,9 @@ import { deleteBook, fetchBooks } from '../actions';
 import AddBook from './AddBook.jsx';
 import BookItem from './BookItem.jsx';
 
-import './booklist.css';
+import './book-list.css';
 
-class Booklist extends Component {
+class BookList extends Component {
 
   componentWillMount() {
     this.props.dispatch(fetchBooks());
@@ -20,7 +20,7 @@ class Booklist extends Component {
 
     return (
       <div>
-        <div className="booklist">
+        <div className="book-list">
           {books.map(book => (
             <BookItem key={book.id} book={book} />
           ))}
@@ -37,4 +37,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(Booklist);
+export default connect(mapStateToProps)(BookList);

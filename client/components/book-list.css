@@ -1,8 +1,8 @@
-.booklist {
+.book-list {
   width: 30%;
 }
 
-.booklist__delete-book {
+.book-list__delete-book {
   border-radius: 50%;
   background-color: #FFFFFF;
   border: 1px solid #874e4c;
@@ -12,19 +12,4 @@
   font-weight: 300;
   opacity: 0.4;
   margin-left: 0.5rem;
-}
-
-.booklist__item {
-  margin: 0.5rem 0;
-  width: 100%;
-  text-align: left;
-}
-
-.booklist__title, .booklist__author {
-  margin: 0;
-}
-
-.booklist__author {
-  font-size: 0.8rem;
-  opacity: 0.5;
 }

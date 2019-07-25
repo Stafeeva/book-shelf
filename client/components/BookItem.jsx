@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import autobind from 'autobind-decorator';
 
-import BookMenu from './BookMenu.jsx';
+import BookMenu from './BookItem.jsx';
+
+import './book-item.css';
 
 class BookItem extends Component {
 
@@ -26,9 +28,10 @@ class BookItem extends Component {
 
     return (
       <div key={book.id}>
-        <button className="booklist__item" onClick={onClickOpenBookMenu}>
-          <p className="booklist__title">{book.title}</p>
-          <p className="booklist__author">by {book.author}</p>
+        <button className="book-item" onClick={onClickOpenBookMenu}>
+          <p className="book-item__title">{book.title}</p>
+          <p className="book-item__author">by {book.author}</p>
+          <p className="book-item__status">{book.status}</p>
         </button>
         {openBookMenu && (
           <BookMenu bookId={book.id}/>

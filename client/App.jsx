@@ -6,7 +6,7 @@ import rootReducer from './reducers';
 import middleware from './middleware';
 
 import Header from './components/Header.jsx';
-import Booklist from './components/Booklist.jsx';
+import BookList from './components/BookList.jsx';
 
 const store = createStore(
   rootReducer,
@@ -18,7 +18,7 @@ class App extends Component {
     return (
       <div>
         <Header />
-        <Booklist />
+        <BookList />
       </div>
     );
   }

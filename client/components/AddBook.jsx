@@ -7,13 +7,14 @@ import { addBook, fetchBooks } from '../actions';
 import './add-book.css';
 
 class AddBook extends Component {
-  
+
   constructor(props) {
     super(props);
 
      this.state = {
        title: '',
        author: '',
+       status: '',
        showInputFields: false,
      };
   }
@@ -40,25 +41,41 @@ class AddBook extends Component {
     });
   }
 
+  @autobind onChangeStatus(event) {
+    const status = event.target.value;
+
+    this.setState({
+      status,
+    });
+  }
+
   @autobind onClickAddBook() {
-    const { author, title } = this.state;
+    const { author, status, title } = this.state;
 
     this.props.dispatch(addBook({
       title,
       author,
+      status,
     }));
 
     this.setState({
       title: '',
       author: '',
+      status: '',
       showInputFields: false,
     });
   }
 
   render() {
-    const { author, title, showInputFields } = this.state;
+    const {
+      author,
+      status,
+      title,
+      showInputFields
+    } = this.state;
     const {
       onChangeAuthor,
+      onChangeStatus,
       onChangeTitle,
       onClickAddBook,
       onClickOpenBookField,
@@ -71,6 +88,8 @@ class AddBook extends Component {
             <input value={title} onChange={onChangeTitle} />
             &nbsp;by&nbsp;
             <input value={author} onChange={onChangeAuthor} />
+            &nbsp;status&nbsp;
+            <input value={status} onChange={onChangeStatus} />
             <button className="add-book__add-button" onClick={onClickAddBook}>Add</button>
           </div>
         ) : (
