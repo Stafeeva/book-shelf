@@ -66,6 +66,12 @@ class AddBook extends Component {
     });
   }
 
+  @autobind onClickOutside() {
+    this.setState({
+      showInputFields: false,
+    })
+  }
+
   render() {
     const {
       author,
@@ -79,13 +85,14 @@ class AddBook extends Component {
       onChangeTitle,
       onClickAddBook,
       onClickOpenBookField,
+      onClickOutside,
     } = this;
 
     return (
       <div className="add-book">
         {showInputFields ? (
-          <div>
-            <input value={title} onChange={onChangeTitle} />
+          <div onBlur={onClickOutside}>
+            <input value={title} onChange={onChangeTitle} autoFocus />
             &nbsp;by&nbsp;
             <input value={author} onChange={onChangeAuthor} />
             &nbsp;status&nbsp;

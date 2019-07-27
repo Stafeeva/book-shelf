@@ -22,11 +22,5 @@ class Bookshelf extends Component {
     );
   }
 }
-//
-// const mapStateToProps = state => {
-//   return {
-//     books: state.books,
-//   };
-// };
 
 export default connect()(Bookshelf);
