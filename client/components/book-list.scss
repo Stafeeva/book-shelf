@@ -1,7 +1,8 @@
 @import '../styles/_colors.scss';
 
 .book-list {
-  width: 30%;
+  margin-right: 2rem;
+  width: 300px;
 
   &__delete-book {
     border-radius: 50%;

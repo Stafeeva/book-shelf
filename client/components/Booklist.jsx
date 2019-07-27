@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import autobind from 'autobind-decorator';
 
-import { deleteBook, fetchBooks } from '../actions';
+import { deleteBook } from '../actions';
 
 import AddBook from './AddBook.jsx';
 import BookItem from './BookItem.jsx';
@@ -11,12 +11,8 @@ import './book-list.scss';
 
 class BookList extends Component {
 
-  componentWillMount() {
-    this.props.dispatch(fetchBooks());
-  }
-
-  @autobind filteredList(status) {
-    const { books } = this.props;
+  @autobind filteredList() {
+    const { books, status } = this.props;
 
     return books.filter(book => book.status == status);
   }
@@ -28,7 +24,7 @@ class BookList extends Component {
     return (
       <div>
         <div className="book-list">
-          {filteredList(status).map(book => (
+          {filteredList().map(book => (
             <BookItem key={book.id} book={book} />
           ))}
         </div>

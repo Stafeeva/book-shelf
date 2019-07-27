@@ -7,6 +7,7 @@ import middleware from './middleware';
 
 import Header from './components/Header.jsx';
 import BookList from './components/BookList.jsx';
+import Bookshelf from './components/Bookshelf.jsx';
 
 import './styles/styles.scss';
 
@@ -20,7 +21,7 @@ class App extends Component {
     return (
       <div>
         <Header />
-        <BookList status="Reading"/>
+        <Bookshelf />
       </div>
     );
   }
