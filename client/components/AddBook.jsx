@@ -13,7 +13,6 @@ class AddBook extends Component {
      this.state = {
        title: '',
        author: '',
-       status: '',
        showInputFields: false,
      };
   }
@@ -40,16 +39,9 @@ class AddBook extends Component {
     });
   }
 
-  onChangeStatus = event => {
-    const status = event.target.value;
-
-    this.setState({
-      status,
-    });
-  }
-
   onClickAddBook = () => {
-    const { author, status, title } = this.state;
+    const { status } = this.props;
+    const { author, title } = this.state;
 
     this.props.dispatch(addBook({
       title,
@@ -60,7 +52,6 @@ class AddBook extends Component {
     this.setState({
       title: '',
       author: '',
-      status: '',
       showInputFields: false,
     });
   }
@@ -69,7 +60,6 @@ class AddBook extends Component {
     this.setState({
       title: '',
       author: '',
-      status: '',
       showInputFields: false,
     });
   }
@@ -77,7 +67,6 @@ class AddBook extends Component {
   render() {
     const {
       author,
-      status,
       title,
       showInputFields
     } = this.state;
@@ -93,12 +82,10 @@ class AddBook extends Component {
     return (
       <div className="add-book">
         {showInputFields ? (
-          <div>
+          <div className="add-book__form">
             <input value={title} onChange={onChangeTitle} autoFocus />
             &nbsp;by&nbsp;
             <input value={author} onChange={onChangeAuthor} />
-            &nbsp;status&nbsp;
-            <input value={status} onChange={onChangeStatus} />
             <button className="add-book__add-button" onClick={onClickAddBook}>Add</button>
             <button className="add-book__add-button" onClick={onClickCancel}>Cancel</button>
           </div>

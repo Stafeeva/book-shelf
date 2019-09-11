@@ -21,14 +21,14 @@ class BookList extends Component {
     const { filteredList } = this;
 
     return (
-      <div>
-        <div className="book-list">
+      <div className="book-list">
+        <div>
           <h3>{status || 'Queue'}</h3>
           {filteredList().map(book => (
             <BookItem key={book.id} book={book} />
           ))}
         </div>
-        <AddBook />
+        <AddBook status={status} />
       </div>
     );
   }
