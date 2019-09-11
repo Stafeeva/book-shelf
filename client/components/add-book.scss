@@ -1,8 +1,6 @@
 @import '../styles/_colors.scss';
 
 .add-book {
-  margin-top: 1rem;
-
   &__open-button {
     border-radius: 50%;
     background-color: #FFFFFF;
@@ -12,15 +10,5 @@
     font-size: 1.3rem;
     font-weight: 300;
     opacity: 0.8;
-  }
-
-  &__add-button {
-    margin-left: 1rem;
-  }
-
-  &__form {
-    background-color: #FFFFFF;
-    padding: 0.5rem;
-    border-radius: 6px;
   }
 }

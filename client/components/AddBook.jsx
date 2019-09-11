@@ -82,12 +82,12 @@ class AddBook extends Component {
     return (
       <div className="add-book">
         {showInputFields ? (
-          <div className="add-book__form">
+          <div>
             <input value={title} onChange={onChangeTitle} autoFocus />
-            &nbsp;by&nbsp;
+            <p className="input-label">- by -</p>
             <input value={author} onChange={onChangeAuthor} />
-            <button className="add-book__add-button" onClick={onClickAddBook}>Add</button>
-            <button className="add-book__add-button" onClick={onClickCancel}>Cancel</button>
+            <button onClick={onClickAddBook}>Add</button>
+            <button onClick={onClickCancel}>Cancel</button>
           </div>
         ) : (
           <button className="add-book__open-button" onClick={onClickOpenBookField}>

@@ -19,18 +19,25 @@ button {
   border: none;
   background-color: $dark-red;
   border-radius: 6px;
-  font-size: 1rem;
+  font-size: 0.8rem;
+  font-weight: 300;
   padding: 0.5rem;
   color: #FFFFFF;
   outline-style: none;
+  margin: 0.5rem 0.5rem 0.5rem 0;
 }
 
 input {
+  width: 100%;
   padding: 0.5rem;
   border-radius: 6px;
-  border: 1px solid $dark-red;
+  border: none;
   font-size: 1rem;
   outline-style: none;
   display: block;
-  margin: 0.5rem 0;
+}
+
+.input-label {
+  font-size: 0.8rem;
+  margin: 0.3rem;
 }

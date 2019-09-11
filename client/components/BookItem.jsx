@@ -14,7 +14,7 @@ class BookItem extends Component {
      };
   }
 
-  onClickOpenBookMenu = () => {
+  onClickMenu = () => {
     this.setState({
       openBookMenu: !this.state.openBookMenu,
     });
@@ -23,7 +23,7 @@ class BookItem extends Component {
   render() {
     const { book } = this.props;
     const { openBookMenu } = this.state;
-    const { onClickOpenBookMenu } = this;
+    const { onClickMenu } = this;
 
     return (
       <div key={book.id}>
@@ -32,10 +32,10 @@ class BookItem extends Component {
             <p className="book-item__title">{book.title}</p>
             <p className="book-item__author">by {book.author}</p>
           </div>
-          <button className="book-item__menu-button" onClick={onClickOpenBookMenu}>...</button>
+          <button className="book-item__menu-button" onClick={onClickMenu}>...</button>
         </div>
         {openBookMenu && (
-          <BookMenu bookId={book.id}/>
+          <BookMenu book={book} onClickCancel={onClickMenu} />
         )}
       </div>
     );

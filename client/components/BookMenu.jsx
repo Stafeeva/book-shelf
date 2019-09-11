@@ -5,27 +5,71 @@ import { deleteBook } from '../actions';
 
 class BookMenu extends Component {
 
-  editBook = () => {
-    const { bookId } = this.props;
+  constructor(props) {
+    super(props);
 
-    console.log('clicked edit book');
+    const { title, author, status } = props.book;
 
-    // this.props.dispatch(deleteBook(bookId));
+     this.state = {
+       title,
+       author,
+       status,
+     };
+  }
+
+  onChangeTitle = event => {
+    const title = event.target.value;
+
+    this.setState({
+      title,
+    });
+  }
+
+  onChangeAuthor = event => {
+    const author = event.target.value;
+
+    this.setState({
+      author,
+    });
+  }
+
+  onChangeStatus = event => {
+    const status = event.target.value;
+
+    this.setState({
+      status,
+    });
   }
 
   deleteBook = () => {
-    const { bookId } = this.props;
+    const { id } = this.props.book;
 
-    this.props.dispatch(deleteBook(bookId));
+    this.props.dispatch(deleteBook(id));
   }
 
   render() {
-    const { editBook, deleteBook } = this;
+    const {
+      deleteBook,
+      onChangeAuthor,
+      onChangeTitle,
+      onChangeStatus,
+      onClickAddBook,
+    } = this;
+    const { title, status, author } = this.state;
+    const { onClickCancel } = this.props;
+
+    console.log('state', this.state);
 
     return (
       <div>
-        <button onClick={editBook}>Edit</button>
-        <button onClick={deleteBook}>Delete</button>
+        <input value={title} onChange={onChangeTitle} />
+        <p className="input-label">- by -</p>
+        <input value={author} onChange={onChangeAuthor} />
+        <p className="input-label">- status -</p>
+        <input value={status} onChange={onChangeStatus} />
+        <button onClick={onClickAddBook}>Save</button>
+        <button onClick={onClickCancel}>Cancel</button>
+        <button onClick={deleteBook}>Delete Book</button>
       </div>
     );
   }
