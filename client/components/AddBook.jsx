@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import autobind from 'autobind-decorator';
 
 import { addBook, fetchBooks } from '../actions';
 
@@ -19,13 +18,13 @@ class AddBook extends Component {
      };
   }
 
-  @autobind onClickOpenBookField() {
+  onClickOpenBookField = () => {
     this.setState({
       showInputFields: true,
     });
   }
 
-  @autobind onChangeTitle(event) {
+  onChangeTitle = event => {
     const title = event.target.value;
 
     this.setState({
@@ -33,7 +32,7 @@ class AddBook extends Component {
     });
   }
 
-  @autobind onChangeAuthor(event) {
+  onChangeAuthor = event => {
     const author = event.target.value;
 
     this.setState({
@@ -41,7 +40,7 @@ class AddBook extends Component {
     });
   }
 
-  @autobind onChangeStatus(event) {
+  onChangeStatus = event => {
     const status = event.target.value;
 
     this.setState({
@@ -49,7 +48,7 @@ class AddBook extends Component {
     });
   }
 
-  @autobind onClickAddBook() {
+  onClickAddBook = () => {
     const { author, status, title } = this.state;
 
     this.props.dispatch(addBook({
@@ -66,10 +65,13 @@ class AddBook extends Component {
     });
   }
 
-  @autobind onClickOutside() {
+  onClickCancel = () => {
     this.setState({
+      title: '',
+      author: '',
+      status: '',
       showInputFields: false,
-    })
+    });
   }
 
   render() {
@@ -84,20 +86,21 @@ class AddBook extends Component {
       onChangeStatus,
       onChangeTitle,
       onClickAddBook,
+      onClickCancel,
       onClickOpenBookField,
-      onClickOutside,
     } = this;
 
     return (
       <div className="add-book">
         {showInputFields ? (
-          <div onBlur={onClickOutside}>
+          <div>
             <input value={title} onChange={onChangeTitle} autoFocus />
             &nbsp;by&nbsp;
             <input value={author} onChange={onChangeAuthor} />
             &nbsp;status&nbsp;
             <input value={status} onChange={onChangeStatus} />
             <button className="add-book__add-button" onClick={onClickAddBook}>Add</button>
+            <button className="add-book__add-button" onClick={onClickCancel}>Cancel</button>
           </div>
         ) : (
           <button className="add-book__open-button" onClick={onClickOpenBookField}>

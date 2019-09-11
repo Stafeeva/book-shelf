@@ -17,7 +17,8 @@ class Bookshelf extends Component {
     return (
       <div className="bookshelf">
         <BookList status={undefined} />
-        <BookList status="Reading"/>
+        <BookList status="Reading" />
+        <BookList status="Finished" />
       </div>
     );
   }

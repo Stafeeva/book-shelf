@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import autobind from 'autobind-decorator';
 
 import { deleteBook } from '../actions';
 
@@ -11,7 +10,7 @@ import './book-list.scss';
 
 class BookList extends Component {
 
-  @autobind filteredList() {
+  filteredList = () => {
     const { books, status } = this.props;
 
     return books.filter(book => book.status == status);
@@ -24,6 +23,7 @@ class BookList extends Component {
     return (
       <div>
         <div className="book-list">
+          <h3>{status || 'Queue'}</h3>
           {filteredList().map(book => (
             <BookItem key={book.id} book={book} />
           ))}

@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import autobind from 'autobind-decorator';
 
 import { deleteBook } from '../actions';
 
 class BookMenu extends Component {
 
-  @autobind editBook() {
+  editBook = () => {
     const { bookId } = this.props;
 
     console.log('clicked edit book');
@@ -14,7 +13,7 @@ class BookMenu extends Component {
     // this.props.dispatch(deleteBook(bookId));
   }
 
-  @autobind deleteBook() {
+  deleteBook = () => {
     const { bookId } = this.props;
 
     this.props.dispatch(deleteBook(bookId));
