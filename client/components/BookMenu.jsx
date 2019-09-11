@@ -24,7 +24,6 @@ class BookMenu extends Component {
 
     return (
       <div>
-        <div>Menu!</div>
         <button onClick={editBook}>Edit</button>
         <button onClick={deleteBook}>Delete</button>
       </div>

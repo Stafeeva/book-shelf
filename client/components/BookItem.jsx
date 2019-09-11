@@ -15,9 +15,8 @@ class BookItem extends Component {
   }
 
   onClickOpenBookMenu = () => {
-    console.log("clicked open book menu", this.props);
     this.setState({
-      openBookMenu: true,
+      openBookMenu: !this.state.openBookMenu,
     });
   }
 
@@ -28,10 +27,13 @@ class BookItem extends Component {
 
     return (
       <div key={book.id}>
-        <button className="book-item" onClick={onClickOpenBookMenu}>
-          <p className="book-item__title">{book.title}</p>
-          <p className="book-item__author">by {book.author}</p>
-        </button>
+        <div className="book-item">
+          <div>
+            <p className="book-item__title">{book.title}</p>
+            <p className="book-item__author">by {book.author}</p>
+          </div>
+          <button className="book-item__menu-button" onClick={onClickOpenBookMenu}>...</button>
+        </div>
         {openBookMenu && (
           <BookMenu bookId={book.id}/>
         )}

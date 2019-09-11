@@ -1,7 +1,17 @@
+@import '../styles/_colors.scss';
+
 .book-item {
   margin: 0.5rem 0;
   width: 100%;
   text-align: left;
+  background-color: $dark-red;
+  border-radius: 6px;
+  font-size: 1rem;
+  padding: 0.5rem;
+  color: #FFFFFF;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
   &__title, &__author {
     margin: 0;
