@@ -16,7 +16,7 @@ class Bookshelf extends Component {
   render() {
     return (
       <div className="bookshelf">
-        <BookList status={undefined} />
+        <BookList status="Queue" />
         <BookList status="Reading" />
         <BookList status="Finished" />
       </div>

@@ -16,3 +16,8 @@ export const setBooks = books => ({
   type: "SET_BOOKS",
   books,
 });
+
+export const editBook = book => ({
+  type: "EDIT_BOOK",
+  book,
+});

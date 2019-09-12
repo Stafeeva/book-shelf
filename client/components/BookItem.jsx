@@ -35,7 +35,7 @@ class BookItem extends Component {
           <button className="book-item__menu-button" onClick={onClickMenu}>...</button>
         </div>
         {openBookMenu && (
-          <BookMenu book={book} onClickCancel={onClickMenu} />
+          <BookMenu book={book} onCloseMenu={onClickMenu} />
         )}
       </div>
     );

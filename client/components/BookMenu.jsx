@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { deleteBook } from '../actions';
+import { deleteBook, editBook } from '../actions';
 
 class BookMenu extends Component {
 
@@ -47,18 +47,25 @@ class BookMenu extends Component {
     this.props.dispatch(deleteBook(id));
   }
 
+  onClickSave = () => {
+    const { id } = this.props.book;
+
+    this.props.dispatch(editBook({
+      id,
+      ...this.state,
+    }));
+  }
+
   render() {
     const {
       deleteBook,
       onChangeAuthor,
       onChangeTitle,
       onChangeStatus,
-      onClickAddBook,
+      onClickSave,
     } = this;
     const { title, status, author } = this.state;
-    const { onClickCancel } = this.props;
-
-    console.log('state', this.state);
+    const { onCloseMenu } = this.props;
 
     return (
       <div>
@@ -67,8 +74,8 @@ class BookMenu extends Component {
         <input value={author} onChange={onChangeAuthor} />
         <p className="input-label">- status -</p>
         <input value={status} onChange={onChangeStatus} />
-        <button onClick={onClickAddBook}>Save</button>
-        <button onClick={onClickCancel}>Cancel</button>
+        <button onClick={onClickSave}>Save</button>
+        <button onClick={onCloseMenu}>Cancel</button>
         <button onClick={deleteBook}>Delete Book</button>
       </div>
     );

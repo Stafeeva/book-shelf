@@ -11,6 +11,13 @@ export const httpMiddleware = store => next => action => {
 
       break;
 
+    case 'EDIT_BOOK':
+      axios.put(`api/books/${action.book.id}`, action.book).then(response => {
+        store.dispatch(fetchBooks());
+      });
+
+      break;
+
     case 'DELETE_BOOK':
       axios.delete(`api/books/${action.id}`).then(response => {
         store.dispatch(fetchBooks());
