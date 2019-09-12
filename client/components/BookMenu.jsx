@@ -42,18 +42,22 @@ class BookMenu extends Component {
   }
 
   deleteBook = () => {
-    const { id } = this.props.book;
+    const { book, deleteBook } = this.props;
+    const { id } = book;
 
-    this.props.dispatch(deleteBook(id));
+    deleteBook(id);
   }
 
   onClickSave = () => {
-    const { id } = this.props.book;
+    const { book, editBook, onCloseMenu } = this.props;
+    const { id } = book;
 
-    this.props.dispatch(editBook({
+    editBook({
       id,
       ...this.state,
-    }));
+    });
+
+    onCloseMenu();
   }
 
   render() {
@@ -82,4 +86,9 @@ class BookMenu extends Component {
   }
 }
 
-export default connect()(BookMenu);
+const mapDispatchToProps = dispatch => ({
+  deleteBook: id => dispatch(deleteBook(id)),
+  editBook: book => dispatch(editBook(book)),
+});
+
+export default connect(null, mapDispatchToProps)(BookMenu);

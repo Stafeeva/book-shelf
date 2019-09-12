@@ -9,8 +9,10 @@ import './bookshelf.scss';
 
 class Bookshelf extends Component {
 
-  componentWillMount() {
-    this.props.dispatch(fetchBooks());
+  constructor(props) {
+    super(props);
+
+    this.props.fetchBooks();
   }
 
   render() {
@@ -24,4 +26,8 @@ class Bookshelf extends Component {
   }
 }
 
-export default connect()(Bookshelf);
+const mapDispatchToProps = dispatch => ({
+  fetchBooks: () => dispatch(fetchBooks()),
+});
+
+export default connect(null, mapDispatchToProps)(Bookshelf);

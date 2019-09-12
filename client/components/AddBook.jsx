@@ -40,14 +40,14 @@ class AddBook extends Component {
   }
 
   onClickAddBook = () => {
-    const { status } = this.props;
+    const { addBook, status } = this.props;
     const { author, title } = this.state;
 
-    this.props.dispatch(addBook({
+    addBook({
       title,
       author,
       status,
-    }));
+    });
 
     this.setState({
       title: '',
@@ -99,4 +99,8 @@ class AddBook extends Component {
   }
 }
 
-export default connect()(AddBook);
+const mapDispatchToProps = dispatch => ({
+  addBook: book => dispatch(addBook(book)),
+});
+
+export default connect(null, mapDispatchToProps)(AddBook);
