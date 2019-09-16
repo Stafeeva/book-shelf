@@ -1,47 +1,29 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import { connect } from 'react-redux';
 
 import { addBook, fetchBooks } from '../actions';
 
 import './add-book.scss';
 
-class AddBook extends Component {
+const AddBook = props => {
+  const [title, setTitle] = useState('');
+  const [author, setAuthor] = useState('');
+  const [inputShown, setInput] = useState(false);
 
-  constructor(props) {
-    super(props);
-
-     this.state = {
-       title: '',
-       author: '',
-       showInputFields: false,
-     };
+  const onChangeTitle = e => {
+    setTitle(e.target.value);
   }
 
-  onClickOpenBookField = () => {
-    this.setState({
-      showInputFields: true,
-    });
+  const onChangeAuthor = e => {
+    setAuthor(e.target.value);
   }
 
-  onChangeTitle = event => {
-    const title = event.target.value;
-
-    this.setState({
-      title,
-    });
+  const onClickOpenBookFields = () => {
+    setInput(true);
   }
 
-  onChangeAuthor = event => {
-    const author = event.target.value;
-
-    this.setState({
-      author,
-    });
-  }
-
-  onClickAddBook = () => {
-    const { addBook, status } = this.props;
-    const { author, title } = this.state;
+  const onClickAddBook = () => {
+    const { addBook, status } = props;
 
     addBook({
       title,
@@ -49,54 +31,30 @@ class AddBook extends Component {
       status,
     });
 
-    this.setState({
-      title: '',
-      author: '',
-      showInputFields: false,
-    });
+    clearState();
   }
 
-  onClickCancel = () => {
-    this.setState({
-      title: '',
-      author: '',
-      showInputFields: false,
-    });
+  const clearState = () => {
+    setTitle('');
+    setAuthor('');
+    setInput(false);
   }
 
-  render() {
-    const {
-      author,
-      title,
-      showInputFields
-    } = this.state;
-    const {
-      onChangeAuthor,
-      onChangeStatus,
-      onChangeTitle,
-      onClickAddBook,
-      onClickCancel,
-      onClickOpenBookField,
-    } = this;
-
-    return (
-      <div className="add-book">
-        {showInputFields ? (
-          <div>
-            <input value={title} onChange={onChangeTitle} autoFocus />
-            <p className="input-label">- by -</p>
-            <input value={author} onChange={onChangeAuthor} />
-            <button onClick={onClickAddBook}>Add</button>
-            <button onClick={onClickCancel}>Cancel</button>
-          </div>
-        ) : (
-          <button className="add-book__open-button" onClick={onClickOpenBookField}>
-            +
-          </button>
-        )}
+  return inputShown ? (
+    <div className="add-book">
+      <div>
+        <input value={title} onChange={onChangeTitle} autoFocus />
+        <p className="input-label">- by -</p>
+        <input value={author} onChange={onChangeAuthor} />
+        <button onClick={onClickAddBook}>Add</button>
+        <button onClick={clearState}>Cancel</button>
       </div>
-    );
-  }
+    </div>
+  ) : (
+    <button className="add-book__open-button" onClick={onClickOpenBookFields}>
+      +
+    </button>
+  )
 }
 
 const mapDispatchToProps = dispatch => ({
