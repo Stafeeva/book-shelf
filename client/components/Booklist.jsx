@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
 
 import { deleteBook } from '../actions';
 
@@ -8,36 +8,25 @@ import BookItem from './BookItem.jsx';
 
 import './book-list.scss';
 
-class BookList extends Component {
+const BookList = props => {
+  const books = useSelector(state => state.books);
+  const { status } = props;
 
-  filteredList = () => {
-    const { books, status } = this.props;
-
+  const filteredList = () => {
     return books.filter(book => book.status == status);
   }
 
-  render() {
-    const { books, status } = this.props;
-    const { filteredList } = this;
-
-    return (
-      <div className="book-list">
-        <div>
-          <h3>{status || 'Queue'}</h3>
-          {filteredList().map(book => (
-            <BookItem key={book.id} book={book} />
-          ))}
-        </div>
-        <AddBook status={status} />
+  return (
+    <div className="book-list">
+      <div>
+        <h3>{status}</h3>
+        {filteredList().map(book => (
+          <BookItem key={book.id} book={book} />
+        ))}
       </div>
-    );
-  }
+      <AddBook status={status} />
+    </div>
+  );
 }
 
-const mapStateToProps = state => {
-  return {
-    books: state.books,
-  };
-};
-
-export default connect(mapStateToProps)(BookList);
+export default connect()(BookList);
