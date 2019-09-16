@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { useEffect } from 'react';
+import { connect, useDispatch } from 'react-redux';
 
 import { fetchBooks } from '../actions';
 
@@ -7,27 +7,20 @@ import BookList from './BookList.jsx';
 
 import './bookshelf.scss';
 
-class Bookshelf extends Component {
+const Bookshelf = props => {
+  const dispatch = useDispatch();
 
-  constructor(props) {
-    super(props);
+  useEffect(() => {
+    dispatch(fetchBooks());
+  });
 
-    this.props.fetchBooks();
-  }
-
-  render() {
-    return (
-      <div className="bookshelf">
-        <BookList status="Queue" />
-        <BookList status="Reading" />
-        <BookList status="Finished" />
-      </div>
-    );
-  }
+  return (
+    <div className="bookshelf">
+      <BookList status="Queue" />
+      <BookList status="Reading" />
+      <BookList status="Finished" />
+    </div>
+  );
 }
 
-const mapDispatchToProps = dispatch => ({
-  fetchBooks: () => dispatch(fetchBooks()),
-});
-
-export default connect(null, mapDispatchToProps)(Bookshelf);
+export default connect()(Bookshelf);
