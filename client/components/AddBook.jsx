@@ -5,6 +5,8 @@ import { addBook, fetchBooks } from '../actions';
 
 import AddBookForm from './AddBookForm.jsx';
 
+import './add-book.scss';
+
 const AddBook = props => {
   const dispatch = useDispatch();
   const [inputShown, showInput] = useState(false);
@@ -26,19 +28,23 @@ const AddBook = props => {
     showInput(false);
   }
 
-  return inputShown ? (
-    <AddBookForm
-      onClickSave={saveBook}
-      onClickCancel={cancel}
-    />
-  ) : (
-    <button
-      className="add-book__open-button"
-      onClick={onClickOpenBookFields}
-    >
-      +
-    </button>
-  )
+  return (
+    <div className="add-book">
+      {inputShown ? (
+        <AddBookForm
+          onClickSave={saveBook}
+          onClickCancel={cancel}
+        />
+      ) : (
+        <button
+          className="add-book__open-button"
+          onClick={onClickOpenBookFields}
+        >
+         +
+        </button>
+      )}
+    </div>
+  );
 }
 
 export default connect()(AddBook);

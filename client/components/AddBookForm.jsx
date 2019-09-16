@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 
-import './add-book.scss';
-
 const AddBookForm = props => {
   const title = useFormInput('');
   const author = useFormInput('');
@@ -14,14 +12,12 @@ const AddBookForm = props => {
   }
 
   return (
-    <div className="add-book">
-      <div>
-        <input {...title} autoFocus />
-        <p className="input-label">- by -</p>
-        <input {...author} />
-        <button onClick={onClickAddBook}>Add</button>
-        <button onClick={props.onClickCancel}>Cancel</button>
-      </div>
+    <div>
+      <input {...title} autoFocus />
+      <p className="input-label">- by -</p>
+      <input {...author} />
+      <button onClick={onClickAddBook}>Add</button>
+      <button onClick={props.onClickCancel}>Cancel</button>
     </div>
   );
 }
