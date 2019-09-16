@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 
 import { addBook, fetchBooks } from '../actions';
 
 import './add-book.scss';
 
 const AddBook = props => {
+  const dispatch = useDispatch();
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
   const [inputShown, setInput] = useState(false);
@@ -23,13 +24,13 @@ const AddBook = props => {
   }
 
   const onClickAddBook = () => {
-    const { addBook, status } = props;
+    const { status } = props;
 
-    addBook({
+    dispatch(addBook({
       title,
       author,
       status,
-    });
+    }));
 
     clearState();
   }
@@ -57,8 +58,4 @@ const AddBook = props => {
   )
 }
 
-const mapDispatchToProps = dispatch => ({
-  addBook: book => dispatch(addBook(book)),
-});
-
-export default connect(null, mapDispatchToProps)(AddBook);
+export default connect()(AddBook);
