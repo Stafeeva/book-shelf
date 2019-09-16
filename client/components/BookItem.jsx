@@ -1,45 +1,32 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 
 import BookMenu from './BookMenu.jsx';
 
 import './book-item.scss';
 
-class BookItem extends Component {
+const BookItem = props => {
+  const [bookMenuOpened, setBookMenu] = useState(false);
+  const { book } = props;
+  const { id, title, author } = book;
 
-  constructor(props) {
-    super(props);
-
-     this.state = {
-       openBookMenu: false,
-     };
+  const onClickMenu = () => {
+    setBookMenu(!bookMenuOpened);
   }
 
-  onClickMenu = () => {
-    this.setState({
-      openBookMenu: !this.state.openBookMenu,
-    });
-  }
-
-  render() {
-    const { book } = this.props;
-    const { openBookMenu } = this.state;
-    const { onClickMenu } = this;
-
-    return (
-      <div key={book.id}>
-        <div className="book-item">
-          <div>
-            <p className="book-item__title">{book.title}</p>
-            <p className="book-item__author">by {book.author}</p>
-          </div>
-          <button className="book-item__menu-button" onClick={onClickMenu}>...</button>
+  return (
+    <div key={id}>
+      <div className="book-item">
+        <div>
+          <p className="book-item__title">{title}</p>
+          <p className="book-item__author">by {author}</p>
         </div>
-        {openBookMenu && (
-          <BookMenu book={book} onCloseMenu={onClickMenu} />
-        )}
+        <button className="book-item__menu-button" onClick={onClickMenu}>...</button>
       </div>
-    );
-  }
+      {bookMenuOpened && (
+        <BookMenu book={book} onCloseMenu={onClickMenu} />
+      )}
+    </div>
+  );
 }
 
 export default BookItem;
