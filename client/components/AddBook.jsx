@@ -3,56 +3,39 @@ import { connect, useDispatch } from 'react-redux';
 
 import { addBook, fetchBooks } from '../actions';
 
-import './add-book.scss';
+import AddBookForm from './AddBookForm.jsx';
 
 const AddBook = props => {
   const dispatch = useDispatch();
-  const [title, setTitle] = useState('');
-  const [author, setAuthor] = useState('');
-  const [inputShown, setInput] = useState(false);
-
-  const onChangeTitle = e => {
-    setTitle(e.target.value);
-  }
-
-  const onChangeAuthor = e => {
-    setAuthor(e.target.value);
-  }
+  const [inputShown, showInput] = useState(false);
 
   const onClickOpenBookFields = () => {
-    setInput(true);
+    showInput(true);
   }
 
-  const onClickAddBook = () => {
-    const { status } = props;
-
+  const saveBook = book => {
     dispatch(addBook({
-      title,
-      author,
-      status,
+      ...book,
+      status: props.status,
     }));
 
-    clearState();
+    showInput(false);
   }
 
-  const clearState = () => {
-    setTitle('');
-    setAuthor('');
-    setInput(false);
+  const cancel = () => {
+    showInput(false);
   }
 
   return inputShown ? (
-    <div className="add-book">
-      <div>
-        <input value={title} onChange={onChangeTitle} autoFocus />
-        <p className="input-label">- by -</p>
-        <input value={author} onChange={onChangeAuthor} />
-        <button onClick={onClickAddBook}>Add</button>
-        <button onClick={clearState}>Cancel</button>
-      </div>
-    </div>
+    <AddBookForm
+      onClickSave={saveBook}
+      onClickCancel={cancel}
+    />
   ) : (
-    <button className="add-book__open-button" onClick={onClickOpenBookFields}>
+    <button
+      className="add-book__open-button"
+      onClick={onClickOpenBookFields}
+    >
       +
     </button>
   )
