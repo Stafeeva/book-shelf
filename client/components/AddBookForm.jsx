@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
+
+import useFormInput from './useFormInput.js';
 
 const AddBookForm = props => {
   const title = useFormInput('');
@@ -20,19 +22,6 @@ const AddBookForm = props => {
       <button onClick={props.onClickCancel}>Cancel</button>
     </div>
   );
-}
-
-const useFormInput = initialValue => {
-  const [value, setValue] = useState(initialValue);
-
-  const onHandleChange = (e) => {
-    setValue(e.target.value);
-  }
-
-  return {
-    value,
-    onChange: onHandleChange,
-  }
 }
 
 export default AddBookForm;

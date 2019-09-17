@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { connect, useDispatch } from 'react-redux';
 
 import { deleteBook, editBook } from '../actions';
+import useFormInput from './useFormInput.js';
 
 const EditBookForm = props => {
   const dispatch = useDispatch();
@@ -41,19 +42,6 @@ const EditBookForm = props => {
       <button onClick={onClickDeleteBook}>Delete Book</button>
     </div>
   );
-}
-
-const useFormInput = initialValue => {
-  const [value, setValue] = useState(initialValue);
-
-  const onHandleChange = (e) => {
-    setValue(e.target.value);
-  }
-
-  return {
-    value,
-    onChange: onHandleChange,
-  }
 }
 
 export default EditBookForm;
