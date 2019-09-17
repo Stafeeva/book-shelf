@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import BookMenu from './BookMenu.jsx';
+import EditBookForm from './EditBookForm.jsx';
 
 import './book-item.scss';
 
@@ -23,7 +23,10 @@ const BookItem = props => {
         <button className="book-item__menu-button" onClick={onClickMenu}>...</button>
       </div>
       {bookMenuOpened && (
-        <BookMenu book={book} onCloseMenu={onClickMenu} />
+        <EditBookForm
+          book={book}
+          onCloseMenu={onClickMenu}
+        />
       )}
     </div>
   );
