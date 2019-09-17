@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 const useFormInput = initialValue => {
   const [value, setValue] = useState(initialValue);
 
-  const onHandleChange = (e) => {
+  const onHandleChange = e => {
     setValue(e.target.value);
   }
 
