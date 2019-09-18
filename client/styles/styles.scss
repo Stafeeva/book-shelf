@@ -28,7 +28,7 @@ button {
   margin: 0.5rem 0.5rem 0.5rem 0;
 }
 
-input {
+input, select {
   width: 100%;
   padding: 0.5rem;
   border-radius: 6px;
@@ -36,6 +36,11 @@ input {
   font-size: 1rem;
   outline-style: none;
   display: block;
+  background-color: #FFFFFF;
+}
+
+select {
+  height: 2rem;
 }
 
 .input-label {

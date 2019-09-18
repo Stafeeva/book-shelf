@@ -4,6 +4,8 @@ import { connect, useDispatch } from 'react-redux';
 import { deleteBook, editBook } from '../actions';
 import useFormInput from './useFormInput.js';
 
+import StatusSelect from './StatusSelect.jsx';
+
 const EditBookForm = props => {
   const dispatch = useDispatch();
 
@@ -36,7 +38,7 @@ const EditBookForm = props => {
       <p className="input-label">- by -</p>
       <input {...author} />
       <p className="input-label">- status -</p>
-      <input {...status} />
+      <StatusSelect {...status} />
       <button onClick={onClickSave}>Save</button>
       <button onClick={onCloseMenu}>Cancel</button>
       <button onClick={onClickDeleteBook}>Delete Book</button>
